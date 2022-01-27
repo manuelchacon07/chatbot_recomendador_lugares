@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <!--<bot name="nombre_bot">bot_recomendador</bot>-->
+  <category>
+    <pattern>Hola</pattern>
+    <template>Hola, ¿Como te llamas?</template>
+    
+  </category>
+  <category>
+    <pattern>Me llamo *</pattern>
+    <template>Encantado de conocerte <set name="nombre"><star/></set>, yo me llamo <set name = "nombre_bot">bot_recomendador</set>, ¿que te gustaria hacer?</template>
+  </category>
+
+  <category>
+    <pattern>Me gustaria *</pattern>
+    <template>
+      <think><set name="cosas_hacer"><star /></set></think>
+      <condition name="cosas_hacer">
+          <li value="ir al teatro">mmm.. con que te gustaria ir al <set name="topic">teatro</set>.... ¿y que genero te gusta? </li>
+          <li value="ir de fiesta">mmm.. con que te gustaria ir de <set name="topic">fiesta</set>.... ¿y que genero te gusta?</li>
+          <li value="ver monumentos">mmm.. con que te gustaria ver <set name="topic">monumentos</set>.... ¿y que estilo te gusta?</li>
+          <li value="comer">mmm.. con que te gusta la <set name="topic">gastronomia</set>.... ¿y que tipo de comida te gusta?</li>
+      </condition>
+    </template>
+  </category>
+
+  <topic name="teatro">
+    <!-- TEST -->
+    <category>
+      <pattern>dime that</pattern>
+      <template>that vale <that/></template>
+    </category>
+    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <category>
+      <pattern>* la comedia</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que consigas una entrada para la funcion Berto Romero mucha tonteria</li>
+          <li>pues te recomiendo que consigas una entrada para la funcion Festejen la Broma de Joaquin Reyes</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* el drama</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que consigas una entrada para la funcion La casa de Bernarda Alba</li>
+          <li>pues te recomiendo que consigas una entrada para la funcion Pelléas et Mélisande</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* los musicales</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que consigas una entrada para el musical Jeanette</li>
+          <li>pues te recomiendo que consigas una entrada para el musical Grease</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* como la consigo</pattern>
+      <that>* para la funcion Berto Romero mucha tonteria</that>
+      <template>https://cartujacenter.janto.es/espectaculo/berto-romero--mucha-tonteria/BERTO-ROMERO</template>
+    </category>
+    <category>
+      <pattern>* como la consigo</pattern>
+      <that>* para la funcion Festejen la Broma de Joaquin Reyes</that>
+      <template>https://www.tomaticket.es/entradas-joaquin-reyes-sevilla</template>
+    </category>
+    <category>
+      <pattern>* como la consigo</pattern>
+      <that>* para la funcion La casa de Bernarda Alba</that>
+      <template>https://www.taquilla.com/entradas/la-casa-de-bernarda-alba-teatro-cervantes-malaga-2022-02?t10event=16913980</template>
+    </category>
+    <category>
+      <pattern>* como la consigo</pattern>
+      <that>* para la funcion Pelléas et Mélisande</that>
+      <template>https://www.salvadorvazquez.com/detalles-y-registro-del-evento/pelleas-et-melisande-1</template>
+    </category>
+    <category>
+      <pattern>* como la consigo</pattern>
+      <that>* para el musical Jeanette</that>
+      <template>https://www.taquilla.com/entradas/jeanette?t10event=16841144</template>
+    </category>
+    <category>
+      <pattern>* como la consigo</pattern>
+      <that>* para el musical Grease</that>
+      <template>https://www.elcorteingles.es/entradas/teatro/entradas-grease-sevilla/</template>
+    </category>
+  </topic>
+
+  <topic name="fiesta">
+    <!-- TEST -->
+    <category>
+      <pattern>dime that</pattern>
+      <template>that vale <that/></template>
+    </category>
+    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <category>
+      <pattern>* el pop</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que visites la discoteca Razzmatazz</li>
+          <li>pues te recomiendo que visites la discoteca Sala Newman</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* el rock</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que visites la discoteca longrock</li>
+          <li>pues te recomiendo que visites la discoteca Rock Dur</li>
+        </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* el regueton</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que visites la discoteca Abril Sevilla</li>
+          <li>pues te recomiendo que visites la discoteca Uthopia</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* la discoteca longrock</that>
+      <template>la direccion es "Blanco White, s/n, C.P. 41018, Sevilla" y esta es su pagina web https://www.longrock.es/sevilla</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* la discoteca Rock Dur</that>
+      <template>la direccion es "Ctra. Pobla de Segur, KM. 2 BAJO, 25560, Sort, LLEIDA" y este es su numero de telefono "973620850"</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* la discoteca Razzmatazz</that>
+      <template>la direccion es "Carrer dels Almogàvers, 122, Barcelona" y esta es su pagina web https://youbarcelona.com/es/discoteca/razzmatazz-barcelona</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* la discoteca Sala Newman</that>
+      <template>la direccion es "Avenida de Finlandia, 1, 41012 Sevilla" y este es su numero de telefono "676681412"</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* la discoteca Uthopia</that>
+      <template>la direccion es "Pl. la Legión, s/n, 41001 Sevilla" y este es su numero de telefono "722487355"</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* la discoteca Abril Sevilla</that>
+      <template>la direccion es "C. Luis Montoto, 118, 41018 Sevilla" y este es su numero de telefono "954571072"</template>
+    </category>
+  </topic>
+
+  <topic name="monumentos">
+    <!-- TEST -->
+    <category>
+      <pattern>dime that</pattern>
+      <template>that vale <that/></template>
+    </category>
+    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <category>
+      <pattern>* el gotico</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que visites la Catedral de Sevilla</li>
+          <li>pues te recomiendo que visites el Castillo de Bellver</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* el barroco</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que visites el Palacio Real de Madrid</li>
+          <li>pues te recomiendo que visites la Catedral de Granada</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* el romano</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que visites Italica Sevilla</li>
+          <li>pues te recomiendo que visites las Ruinas de Baelo Claudia</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* la Catedral de Sevilla</that>
+      <template>la direccion es "Av. de la Constitución, s/n, 41004 Sevilla" y esta es su pagina web https://www.catedraldesevilla.es/visita-cultural/horarios-y-tarifas/</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* el Castillo de Bellver</that>
+      <template>la direccion es "Carrer Camilo José Cela, s/n, 07014 Palma, Illes Balears" y esta es su pagina web https://castelldebellver.palma.cat/portal/PALMA/castelldebellver/castelldebellver_principal1.jsp?codResi=1</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* el Palacio Real de Madrid</that>
+      <template>la direccion es "Blanco White, s/n, C.P. 41018, Sevilla" y esta es su pagina web https://tickets.patrimonionacional.es/es-ES/informacion-recinto/6/palacio-real-de-madrid</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* la Catedral de Granada</that>
+      <template>la direccion es "C. Gran Vía de Colón, 5, 18001 Granada" y esta es su pagina web https://catedraldegranada.com/precios-horarios-de-la-visita/</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* Italica Sevilla</that>
+      <template>la direccion es "Av. Extremadura, 2, 41970 Santiponce, Sevilla" y esta es su pagina web https://www.italicasevilla.org/</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* las Ruinas de Baelo Claudia</that>
+      <template>la direccion es "Ensenada de Bolonia, s/n, 11380 Cádiz" y esta es su pagina web http://www.museosdeandalucia.es/web/conjuntoarqueologicobaeloclaudia</template>
+    </category>
+  </topic>
+
+  <topic name="gastronomia">
+    <!-- TEST -->
+    <category>
+      <pattern>dime that</pattern>
+      <template>that vale <that/></template>
+    </category>
+    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <category>
+      <pattern>* el pescado</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que comas en El Espigon</li>
+          <li>pues te recomiendo que comas en Mariscos Emilio
+          </li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* la carne</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que comas en Res Brothers</li>
+          <li>pues te recomiendo que comas en La Montanera</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* los postres</pattern>
+      <template>
+        <random>
+          <li>pues te recomiendo que comas en Horno La Tahona</li>
+          <li>pues te recomiendo que comas en El Petisu</li>
+       </random>
+      </template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* El Espigon</that>
+      <template>la direccion es "C. Bogotá, 1, 41013 Sevilla" y este es su numero de telefono "954626851"</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* Mariscos Emilio</that>
+      <template>la direccion es "C. Génova, 1, 41010 Sevilla" y este es su numero de telefono "697108049"</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* Res Brothers</that>
+      <template>la direccion es "Av. de Diego Martínez Barrio, 10B, 41013 Sevilla" y este es su numero de telefono "954818928"</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* La Montanera</that>
+      <template>la direccion es "C. Juan Sebastián Elcano, 16, 41011 Sevilla" y este es su numero de telefono "954276990"</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* Horno La Tahona</that>
+      <template>la direccion es "C. Luis de Morales, 30, 41018 Sevilla" y este es su numero de telefono "653109469"</template>
+    </category>
+    <category>
+      <pattern>* cual es la direccion</pattern>
+      <that>* El Petisu</that>
+      <template>la direccion es "C. Felipe II, 17, 41013 Sevilla" y este es su numero de telefono "954234992"</template>
+    </category>
+  </topic>
+
+</aiml>
